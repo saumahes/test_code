@@ -1,0 +1,1048 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;\f2\fswiss\fcharset0 ArialMT;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fnil\fcharset0 HelveticaNeue-Bold;
+\f6\fnil\fcharset0 Charter-Roman;\f7\fnil\fcharset0 Monaco;\f8\fmodern\fcharset0 Courier;
+\f9\fmodern\fcharset0 Courier-Bold;\f10\fswiss\fcharset0 Arial-BoldMT;\f11\fswiss\fcharset0 Arial-ItalicMT;
+}
+{\colortbl;\red255\green255\blue255;\red21\green23\blue25;\red255\green255\blue255;\red36\green38\blue41;
+\red235\green236\blue237;\red104\green26\blue29;\red43\green39\blue19;\red27\green29\blue31;\red87\green96\blue105;
+\red173\green179\blue183;\red44\green44\blue44;\red0\green0\blue0;\red14\green14\blue14;\red0\green0\blue0;
+\red242\green239\blue236;\red252\green54\blue7;\red0\green0\blue0;\red7\green22\blue36;\red40\green82\blue135;
+\red29\green29\blue29;\red38\green38\blue38;\red170\green0\blue37;\red152\green53\blue109;\red52\green52\blue52;
+\red251\green0\blue7;\red249\green255\blue186;\red48\green121\blue175;\red135\green135\blue135;\red237\green237\blue237;
+}
+{\*\expandedcolortbl;;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c18824\c20000\c21176;
+\cssrgb\c93725\c94118\c94510;\cssrgb\c49020\c15294\c15294;\cssrgb\c22353\c20000\c9412;\cssrgb\c14118\c15294\c16078;\cssrgb\c41569\c45098\c48627;
+\cssrgb\c73333\c75294\c76863;\cssrgb\c22745\c22745\c22745;\cssrgb\c0\c0\c0\c9804;\cssrgb\c6667\c6667\c6667;\cssrgb\c0\c0\c0\c80000;
+\cssrgb\c96078\c94902\c94118;\cssrgb\c100000\c30588\c0;\cssrgb\c0\c0\c0;\cssrgb\c1961\c11765\c18824;\cssrgb\c20000\c40000\c60000;
+\cssrgb\c15294\c15294\c15294;\cssrgb\c20000\c20000\c20000;\cssrgb\c73333\c5490\c18824;\cssrgb\c66667\c29412\c50196;\cssrgb\c26667\c26667\c26667;
+\cssrgb\c100000\c0\c0;\cssrgb\c98039\c100000\c77647;\cssrgb\c23137\c55294\c74118;\cssrgb\c60000\c60000\c60000;\cssrgb\c94510\c94510\c94510;
+}
+\margl1440\margr1440\vieww25240\viewh14140\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\sa120\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+1) How to find all the links in a folder in UNIX or Linux ?\
+This is a tricky UNIX question as there is no specific command to find all symbolic links. Though you have ln command for creating and updating soft links but nothing which gives you all the links in a directory. You need to use ls command which list everything in directory and then you need to list all the links, as they starts with "l" as first characters, as shown in above article .\
+here is the actual UNIX command to find all links in a directory :\
+linux@nyj872:~ ls -lrt\cb1 \uc0\u8232 \cb3 total 2.0K\cb1 \uc0\u8232 \cb3 -rw-r--r-- 1 Linux Domain Users 0 Dec 6 2011 a\cb1 \uc0\u8232 \cb3 drwxr-xr-x+ 1 Linux Domain Users 0 Sep 19 12:30 java/\cb1 \uc0\u8232 \cb3 lrwxrwxrwx 1 Linux Domain Users 4 Sep 19 12:31 version_1.0 -> java/\
+linux@nyj872:~ ls -lrt | grep '^l'\
+\cb1 \uc0\u8232 \cb3 lrwxrwxrwx 1 Linux Domain Users 4 Sep 19 12:31 version_1.0 -> java/\
+\
+2) How to find a process and kill that ?\
+Another classic UNIX interview questions. Answer of this question is simple if you are familiar with ps, grep and kill command. by using "ps -ef" you can get list of all process and then use grep to find your process and get the PID of that process. Once you got PID you can use kill command to kill that process as shown in this example of kill command in UNIX.\
+\
+3) How to run a program in background in UNIX or Linux ?\
+an easy UNIX or Linux interview question, only when you know. You can use &amp; to run any process in background and than you can use jobs to find the job id for that process and can use fg and bg command to bring that process into foreground and background.\
+CTRL+Z and bg\
+Fg + processid\
+\
+4) How to sort output of a command in reverse order in Linux or UNIX ?\
+One more Linux command interview question which checks knowledge of frequently used command. you can use sort command in UNIX to sort output of any command by using PIPE. By using -r option with sort command you can sort output of any command in reverse order.\
+\
+5) How to create archive file in UNIX or Linux Operating System ?\
+Another interview question based on knowledge of UNIX or Linux command. you can use tar command to great archives in UNIX or Linux. you can even combine tar and gzip to create a compressed archive in UNIX.\
+Tar -cvf file.tar /opt/cri/\'85\
+Tar -cvzf file.tgz /opt/cri/..\
+\
+6) What is meaning of a file has 644 permission ?\
+To answer this UNIX or Linux interview question, you must know basics of files and directories in UNIX. 644 represents permission 110 for owner, permission 100 for group and 100 for others which means read + write for owner who create that file and read only permission for group and others.\
+\
+7) How will you remove empty files or directories from /tmp ?\
+Rm -rf /tmp\
+\
+8) I have read permission on a directory but I am not able to enter it why ?\
+One more tricky UNIX questions. In order to get into a directory you need execute permission. if your directory does not have execute permission than you can not go into that directory by using cd command.\
+\
+9) How do you find all files which are modified 10 minutes before ?\
+This is another the Linux interview questions from frequently used command e.g. find and grep. you can use -mtime option of find command to list all the files which are modified 10 or m minutes before.\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf4 \cb5 find . -mmin -\cf6 10\cf7 \
+\pard\pardeftab720\sl340\sa120\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \
+10) How to do you find size of directory in UNIX or Linux ?\
+This is another tricky and bit tough Linux interview question as popular ls command doesn't show complete size of directories in UNIX. you need to use du command to get full size of directories including all sub directories in UNIX.\
+Du -sh <directory name>\
+\
+11) Find out the open ports status from remote\
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f2\fs30 \cf8 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf8 \cb5 nc -zv <hostname/ip> <port/port range>\
+\
+For example,\
+nc -zv localhost 27017-27019\
+or\
+nc -zv localhost 27017\
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f2\fs30 \cf8 \cb3 You can also use telnet command\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf8 \cb5 telnet <ip/host> port\
+\pard\pardeftab720\sl340\sa120\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \
+\pard\pardeftab720\sl440\partightenfactor0
+
+\f2\fs38\fsmilli19385 \cf9 \
+\pard\pardeftab720\sl300\qc\partightenfactor0
+
+\fs26 \cf10 \cb1 \
+\pard\pardeftab720\sl380\sa300\partightenfactor0
+
+\fs30 \cf8 \cb3 For scripting purposes, I've found that\'a0
+\f1\fs26 \cb5 curl
+\f2\fs30 \cb3 \'a0command can do it, for example:\cb1 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs26 \cf8 \cb5 $ curl -s localhost:80 >/dev/null && echo Connected. || echo Fail.\
+Connected.\
+$ curl -s localhost:123 >/dev/null && echo Connected. || echo Fail.\
+Fail.\
+\pard\pardeftab720\sl340\sa120\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \
+\
+\pard\pardeftab720\sl400\sa510\partightenfactor0
+
+\f3\fs34 \cf11 Well known ones are:\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrt\brdrnil \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+
+\f4\b \cf11 \cb1 Port\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 Service name\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 Transport protocol\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+
+\f3\b0 \cf11 \'a020, 21\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0File Transfer Protocol (FTP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a022\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Secure Shell (SSH)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a023\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Telnet\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a025\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Simple Mail Transfer Protocol (SMTP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a050, 51\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0IPSec\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a053\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Domain Name System (DNS)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a067, 68\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Dynamic Host Configuration Protocol (DHCP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a069\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Trivial File Transfer Protocol (TFTP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a080\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0HyperText Transfer Protocol (HTTP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0110\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Post Office Protocol (POP3)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0119\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Network News Transport Protocol (NNTP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0123\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Network Time Protocol (NTP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0135-139\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0NetBIOS\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0143\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Internet Message Access Protocol (IMAP4)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0161, 162\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Simple Network Management Protocol (SNMP)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0389\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Lightweight Directory Access Protocol\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0443\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0HTTP with Secure Sockets Layer (SSL)\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth14460\trftsWidth3 \tamarb510 \trbrdrl\brdrs\brdrw20\brdrcf12 \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1668\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth8271\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth3500\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf12 \clbrdrr\brdrs\brdrw20\brdrcf12 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a03389\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0Remote Desktop Protocol\cell 
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf11 \'a0TCP and UDP
+\f0\fs28 \cf2 \cb3 \cell \lastrow\row
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs36 \cf13 Ifconfig
+\fs76\fsmilli38400 \
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 ifconfig\'a0utility is used to configure network interface parameters.\
+Mostly we use this command to check the IP address assigned to the system.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# ifconfig -a\
+eno16777736: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500\
+\'a0\'a0\'a0\'a0\'a0\'a0 ether 00:0c:29:c5:a5:61 txqueuelen 1000 (Ethernet)\
+\'a0\'a0\'a0\'a0\'a0\'a0 RX packets 0 bytes 0 (0.0 B)\
+\'a0\'a0\'a0\'a0\'a0\'a0 RX errors 0 dropped 0 overruns 0 frame 0\
+\'a0\'a0\'a0\'a0\'a0\'a0 TX packets 0 bytes 0 (0.0 B)\
+\'a0\'a0\'a0\'a0\'a0\'a0 TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0\
+lo: flags=73<UP,LOOPBACK,RUNNING> mtu 65536\
+\'a0\'a0\'a0\'a0\'a0\'a0 inet 127.0.0.1 netmask 255.0.0.0\
+\'a0\'a0\'a0\'a0\'a0\'a0 inet6 ::1 prefixlen 128 scopeid 0x10<host>\
+\'a0\'a0\'a0\'a0\'a0\'a0 loop txqueuelen 0 (Local Loopback)\
+\'a0\'a0\'a0\'a0\'a0\'a0 RX packets 2 bytes 140 (140.0 B)\
+\'a0\'a0\'a0\'a0\'a0\'a0 RX errors 0 dropped 0 overruns 0 frame 0\
+\'a0\'a0\'a0\'a0\'a0\'a0 TX packets 2 bytes 140 (140.0 B)\
+\'a0\'a0\'a0\'a0\'a0\'a0 TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0\
+[root@localhost ~]#\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf3 \cb16 2\cf13 \cb3 traceroute\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 traceroute\'a0print the route packets take to network host.\
+Destination host or IP is mandatory parameter to use this utility\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# traceroute geekflare.com\
+traceroute to geekflare.com (162.159.243.243), 30 hops max, 60 byte packets\
+1 172.16.179.2 (172.16.179.2) 0.154 ms 0.074 ms 0.074 ms\
+2 * * *\
+3 * * *\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf3 \cb16 3\cf13 \cb3 dig\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 dig\'a0(Domain Information Groper) is a flexible tool for interrogating DNS name servers.\
+It performs\'a0{\field{\*\fldinst{HYPERLINK "https://tools.geekflare.com/tools/dns-lookup"}}{\fldrslt \cf16 DNS lookups}}\'a0and displays the answers that are returned from the name servers.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# dig geekflare.com\
+; <<>> DiG 9.9.4-RedHat-9.9.4-14.el7 <<>> geekflare.com\
+;; global options: +cmd\
+;; Got answer:\
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18699\
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\
+;; OPT PSEUDOSECTION:\
+; EDNS: version: 0, flags:; MBZ: 0005 , udp: 4000\
+;; QUESTION SECTION:\
+;geekflare.com.\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 IN\'a0\'a0\'a0\'a0\'a0\'a0\'a0 A\
+;; ANSWER SECTION:\
+geekflare.com.\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 5\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 IN\'a0\'a0\'a0\'a0\'a0\'a0\'a0 A\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 162.159.244.243\
+geekflare.com.\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 5\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 IN\'a0\'a0\'a0\'a0\'a0\'a0\'a0 A\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 162.159.243.243\
+;; Query time: 6 msec\
+;; SERVER: 172.16.179.2#53(172.16.179.2)\
+;; WHEN: Sun May 01 23:28:19 PDT 2016\
+;; MSG SIZE rcvd: 74\
+[root@localhost ~]#\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 \cb3 telnet\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 telnet\'a0connect destination host:port via a telnet protocol if connection establishes means connectivity between two hosts is working fine.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# telnet geekflare.com 443\
+Trying 162.159.244.243...\
+Connected to geekflare.com.\
+Escape character is '^]'.\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 \cb3 nslookup\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 nslookup\'a0is a program to query Internet domain name servers.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# nslookup geekflare.com\
+Server:\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 172.16.179.2\
+Address:\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 172.16.179.2#53\'a0\
+Non-authoritative answer:\
+Name: geekflare.com\
+Address: 162.159.243.243\
+Name: geekflare.com\
+Address: 162.159.244.243\
+[root@localhost ~]#\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 \cb3 netstat\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://geekflare.com/netstat/"}}{\fldrslt 
+\f6\b0\fs42 \cf16 Netstat\'a0}}
+\f6\b0\fs42 \cf14 command allows you a simple way to review each of your network connections and open sockets.\
+netstat\'a0with\'a0head\'a0output is very helpful while performing web server troubleshooting.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# netstat\
+Active Internet connections (w/o servers)\
+Proto Recv-Q Send-Q Local Address\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 Foreign Address\'a0\'a0 \'a0\'a0\'a0\'a0\'a0State\'a0\'a0\'a0\'a0\
+tcp\'a0\'a0\'a0\'a0\'a0\'a0 0\'a0\'a0\'a0\'a0 0 172.16.179.135:58856\'a0\'a0 mirror.comp.nus.ed:http TIME_WAIT\
+tcp\'a0\'a0\'a0\'a0\'a0\'a0 0\'a0\'a0\'a0\'a0 0 172.16.179.135:34444\'a0\'a0 riksun.riken.go.jp:http ESTABLISHED\
+tcp\'a0\'a0\'a0\'a0\'a0\'a0 0\'a0\'a0\'a0\'a0 0 172.16.179.135:37948\'a0\'a0 mirrors.isu.net.sa:http TIME_WAIT\
+tcp\'a0\'a0\'a0\'a0\'a0\'a0 0\'a0\'a0\'a0\'a0 0 172.16.179.135:53128\'a0\'a0 ossm.utm.my:http\'a0\'a0\'a0\'a0\'a0\'a0 TIME_WAIT\
+tcp\'a0\'a0\'a0\'a0\'a0\'a0 0\'a0\'a0\'a0\'a0 0 172.16.179.135:59723\'a0\'a0 103.237.168.15:http\'a0\'a0\'a0\'a0 TIME_WAIT\
+tcp\'a0\'a0\'a0\'a0\'a0\'a0 0\'a0\'a0\'a0\'a0 0 172.16.179.135:60244\'a0\'a0 no-ptr.as20860.net:http TIME_WAIT\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf3 \cb16 7\cf13 \cb3 scp\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 scp\'a0allows you to secure copy files to and from another host in the network.\
+Ex:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 scp $filename user@targethost:/$path\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf3 \cb16 8\cf13 \cb3 w\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 w\'a0prints a summary of the current activity on the system, including what each user is doing, and their processes.\
+Also list the logged in users and system load average for the past 1, 5, and 15 minutes.\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 [root@localhost ~]# w\
+23:32:48 up 2:52, 2 users, load average: 0.51, 0.36, 0.19\
+USER\'a0\'a0\'a0\'a0 TTY\'a0\'a0\'a0\'a0\'a0\'a0 LOGIN@\'a0\'a0 IDLE\'a0\'a0 JCPU\'a0\'a0 PCPU WHAT\
+chandan :0\'a0\'a0\'a0\'a0\'a0\'a0 20:41\'a0\'a0 ?xdm?\'a0\'a0 7:07 0.13s gdm-session-worker [pam/gdm-password]\
+chandan pts/0\'a0\'a0\'a0\'a0 20:42\'a0\'a0 0.00s 0.23s 3.42s /usr/libexec/gnome-terminal-server\
+[root@localhost ~]#\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf3 \cb16 9\cf13 \cb3 nmap\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 nmap is a one of the powerful commands, which checks the\'a0{\field{\*\fldinst{HYPERLINK "https://geekflare.com/port-scanner-server/"}}{\fldrslt \cf16 opened port}}\'a0on the server.\
+Usage example:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\fs32 \cf14 \cb15 nmap $server_name\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf3 \cb16 10\cf13 \cb3 Enable/Disable Network Interface\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 You can enable or disable the network interface by using ifup/ifdown commands with ethernet interface parameter.\
+\pard\pardeftab720\sl580\sa400\partightenfactor0
+
+\f5\b \cf16 To enable eth0\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\b0\fs32 \cf14 \cb15 #ifup eth0\
+\pard\pardeftab720\sl580\sa400\partightenfactor0
+
+\f5\b\fs42 \cf16 \cb3 To disable eth0\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f1\b0\fs32 \cf14 \cb15 #ifdown eth0\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\fs42 \cf14 \cb3 \
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 top\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 You may want to start by looking into\'a0
+\f1\fs32 \cb15 top
+\f6\fs42 \cb3 \'a0or\'a0
+\f1\fs32 \cb15 htop
+\f6\fs42 \cb3 \'a0result to see the processes overview.\
+As you can see below, it gives an excellent idea about what all processes are utilizing. If you look at the first one which is nodejs taking 3.9% of memory and 0.3% of CPU.\
+Once you identify the suspect, then you may want to focus on that process instead of everything like you saw above. You can still use\'a0
+\f1\fs32 \cb15 top
+\f6\fs42 \cb3 \'a0command but with some argument.\
+Let\'92s say you know the process id (PID); you can use the below command.\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f7\fs32 \cf17 \cb15 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 top -p $PID\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\fs42 \cf14 \cb3 \shad0 \
+You may also use\'a0
+\f1\fs32 \cb15 grep
+\f6\fs42 \cb3 \'a0with\'a0
+\f1\fs32 \cb15 top
+\f6\fs42 \cb3 . \
+\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 htop\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 Similar to the top but with more information. As you can, it got the command column, which is handy to identify the process path. And, also it is colorful.\
+\
+htop may not be installed by default, but you can always do it by\'a0
+\f1\fs32 \cb15 apt-get install htop
+\f6\fs42 \cb3 \'a0if using Ubuntu.\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 glances\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 As the name says, you get system utilization view on a single screen. Running processes are sorted by their CPU utilization.\
+\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 atop\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 A similar to the above listed but with a brilliant feature to record the output in a file so you can view them later. Imagine, there is a pattern of having an issue at a specific time window. You can schedule to write the output in a file through\'a0{\field{\*\fldinst{HYPERLINK "https://geekflare.com/crontab-linux-with-real-time-examples-and-tools/"}}{\fldrslt \cf16 crontab}}\'a0or other and later you can playback.\
+To record the output in a file:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f7\fs32 \cf17 \cb15 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 atop -w filename\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\fs42 \cf14 \cb3 \shad0 and, to playback:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f7\fs32 \cf17 \cb15 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 atop -r filename\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\fs42 \cf14 \cb3 \shad0 It supports multiple arguments like interval, samples, etc. and I would strongly recommend taking a look at the man page.\
+If you are just interested in real-time troubleshooting, then just execute\'a0
+\f1\fs32 \cb15 atop
+\f6\fs42 \cb3 \'a0and you should see like below.\
+\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 ps\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 Let\'92s check\'a0
+\f1\fs32 \cb15 ps
+\f6\fs42 \cb3 \'a0command now.\
+You can use ps command with PID to print their CPU and memory utilization.\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f7\fs32 \cf17 \cb15 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 ps -p $PID -o %cpu,%mem\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\fs42 \cf14 \cb3 \shad0 The output should look like this.\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f7\fs32 \cf17 \cb15 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 root@sr-master-us:~# ps -p 1048 -o %cpu,%mem\
+%CPU %MEM\
+ 0.2  3.0\
+root@sr-master-us:~#\
+\pard\pardeftab720\sl1060\sa400\partightenfactor0
+
+\f5\b\fs76\fsmilli38400 \cf13 \cb3 \shad0 nmon\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\b0\fs42 \cf14 Interactive command-line monitoring tool for CPU, memory, disks, network, NFS, and virtual memory utilization. To view the top process (by utilization), you can execute\'a0
+\f1\fs32 \cb15 nmon
+\f6\fs42 \cb3 \'a0and press\'a0
+\f1\fs32 \cb15 t
+\f6\fs42 \cb3 \'a0button.\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f8\fs36 \cf3 \cb18 [root@tecmint.com ~]# dmesg | more\
+\pard\pardeftab720\sl580\partightenfactor0
+\cf3 [root@tecmint.com ~]# dmesg | less\
+[root@tecmint.com ~]# dmesg | grep sda\
+dmesg | head  -20\
+\pard\pardeftab720\sl780\sa280\partightenfactor0
+
+\f2\fs60 \cf19 \cb3 Print Only Last 20 Lines of Output\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 The \'91tail\'92 along with dmesg command will print only 20 last lines, this is useful in case we insert removable device.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 [root@tecmint.com ~]# dmesg | tail -20\
+\pard\pardeftab720\sl780\sa280\partightenfactor0
+
+\f2\fs60 \cf19 \cb3 Search Detected Device or Particular String\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 It\'92s difficult to search particular string due to length of dmesg output. So, filter the lines with are having string like \'91\cf21 usb\cf20 \'91 \'91\cf21 dma\cf20 \'91 \'91\cf21 tty\cf20 \'91 and \'91\cf21 memory\cf20 \'91 etc. The \'91-i\'92 option instruct to\'a0{\field{\*\fldinst{HYPERLINK "https://www.tecmint.com/12-practical-examples-of-linux-grep-command/"}}{\fldrslt \cf22 \ul \ulc22 grep command}}\'a0to ignore the case (upper or lower case letters).\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 [root@tecmint.com log]# dmesg | grep -i usb\
+[root@tecmint.com log]# dmesg | grep -i dma\
+[root@tecmint.com log]# dmesg | grep -i tty\
+[root@tecmint.com log]# dmesg | grep -i memory\
+\pard\pardeftab720\sl520\sa560\partightenfactor0
+
+\f6\fs42 \cf14 \cb3 \
+\
+\pard\pardeftab720\sl676\sa280\partightenfactor0
+
+\f2\fs52 \cf23 Assigning IP Address and Gateway\
+\pard\pardeftab720\sl420\qc\partightenfactor0
+
+\fs36 \cf20 \cb1 \ul \ulc20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+\cf20 \cb3 \ulnone Assigning an\'a0\cf21 IP Address\cf20 \'a0and\'a0\cf21 Gateway\cf20 \'a0to interface on the fly. The setting will be removed in case of system reboot.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # ifconfig eth0 192.168.50.5 netmask 255.255.255.0
+\f8\b0 \
+\pard\pardeftab720\sl676\sa280\partightenfactor0
+
+\f2\fs52 \cf23 \cb3 Enable or Disable Specific Interface\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 To\'a0\cf21 enable\cf20 \'a0or\'a0\cf21 disable\cf20 \'a0specific Interface, we use example command as follows.\
+\pard\pardeftab720\sl572\sa280\partightenfactor0
+
+\fs44 \cf24 Enable eth0\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b\fs36 \cf3 \cb18 # ifup eth0
+\f8\b0 \
+\pard\pardeftab720\sl572\sa280\partightenfactor0
+
+\f2\fs44 \cf24 \cb3 Disable eth0\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b\fs36 \cf3 \cb18 # ifdown eth0
+\f8\b0 \
+\pard\pardeftab720\sl676\sa280\partightenfactor0
+
+\f2\fs52 \cf23 \cb3 Setting MTU Size\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 By default\'a0\cf21 MTU\cf20 \'a0size is\'a0\cf21 1500\cf20 . We can set required\'a0\cf21 MTU\cf20 \'a0size with below command. Replace\'a0\cf21 XXXX\cf20 \'a0with size.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # ifconfig eth0 mtu XXXX
+\f8\b0 \
+\pard\pardeftab720\sl340\sa120\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \
+\pard\pardeftab720\sl780\sa280\partightenfactor0
+
+\f2\fs60 \cf19 ROUTE Command\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf21 route\cf20 \'a0command also shows and manipulate\'a0\cf21 ip\cf20 \'a0routing table. To see default routing table in\'a0\cf21 Linux\cf20 , type the following command.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # route
+\f8\b0 \
+\
+Kernel IP routing table\
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface\
+192.168.50.0    *               255.255.255.0   U     0      0        0 eth0\
+link-local      *               255.255.0.0     U     1002   0        0 eth0\
+default         192.168.50.1    0.0.0.0         UG    0      0        0 eth0\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 Adding, deleting routes and default Gateway with following commands.\
+\pard\pardeftab720\sl572\sa280\partightenfactor0
+
+\fs44 \cf24 Route Adding\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b\fs36 \cf3 \cb18 # route add -net 10.10.10.0/24 gw 192.168.0.1
+\f8\b0 \
+\pard\pardeftab720\sl572\sa280\partightenfactor0
+
+\f2\fs44 \cf24 \cb3 Route Deleting\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b\fs36 \cf3 \cb18 # route del -net 10.10.10.0/24 gw 192.168.0.1
+\f8\b0 \
+\pard\pardeftab720\sl572\sa280\partightenfactor0
+
+\f2\fs44 \cf24 \cb3 Adding default Gateway\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b\fs36 \cf3 \cb18 # route add default gw 192.168.0.1
+\f8\b0 \
+\pard\pardeftab720\sl340\sa120\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \
+\pard\pardeftab720\sl780\sa280\partightenfactor0
+
+\f2\fs60 \cf19 HOST Command\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf21 host\cf20 \'a0command to find name to\'a0\cf21 IP\cf20 \'a0or\'a0\cf21 IP\cf20 \'a0to name in\'a0\cf21 IPv4\cf20 \'a0or\'a0\cf21 IPv6\cf20 \'a0and also query\cf21 \'a0DNS\cf20 \'a0records.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # host www.google.com
+\f8\b0 \
+\
+www.google.com has address 173.194.38.180\
+www.google.com has address 173.194.38.176\
+www.google.com has address 173.194.38.177\
+www.google.com has address 173.194.38.178\
+www.google.com has address 173.194.38.179\
+\pard\pardeftab720\sl780\sa280\partightenfactor0
+
+\f2\fs60 \cf19 \cb3 ARP Command\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf21 ARP\cf20 \'a0(Address Resolution Protocol) is useful to\'a0\cf21 view\cf20 \'a0/\'a0\cf21 add\cf20 \'a0the contents of the kernel\'92s\'a0\cf21 ARP tables\cf20 . To see default table use the command as.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # arp -e
+\f8\b0 \
+\
+Address                  HWtype  HWaddress           Flags Mask            Iface\
+192.168.50.1             ether   00:50:56:c0:00:08   C      \
+\
+\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 \cb3 1. How will you suspend a running process and put it in the background?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 In order to suspend a running process/job and put it in the background we need to use the key combination Ctrl+z.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 2. What are the minimum number of partitions required to install Linux and How will you check boot messages?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 The /root partition alone is sufficient to perform the whole task however minimum three partitions are recommended to install Linux. These are root, boot and swap. An IDE Hard Disk Drive supports upto 63 partitions and SCSI Hard Disk Drive supports up-to 15 partitions.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 In order to check boot messages we need to use cat or dmesg commands as shown below.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 # cat /var/log/messages\
+\
+OR \
+\
+# dmesg\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 \cb3 3. Name the Daemon responsible for tracking System Event on your Linux box?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 The Daemon \'91syslogd\'92 is responsible for tracking system information and stores the tracked logs in specific log files.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 4. What are the minimum requirements to run command \'91fsck\'92 on root partition?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 The /root partition must be mounted as read only mode and not read-write to execute fsck command on root partition.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 5. How to copy /home directory hierarchically to another directory. How will you do it?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 A Linux command \'91cpio\'92 comes to rescue here. The \'91cpio\'92 utility copies files and directories hierarchically over another location.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 6. How will you automate the rotation of logs in Linux?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 A Linux command \'91logrotate\'92 comes to rescue when it comes to automate the logs in Linux.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 7. How to know who has scheduled the job?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 The Linux command \'91at\'92 along with switch \'91-l\'92 is all we need to use in order to check who has scheduled the job.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 8. How to view the contents of the tar ball without extracting it. How will you do this?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 We need to use command \'91tar\'92 with options \'91-tvf\'92. The options \'91t\'92 (Display the contents), \'91v\'92 (Verbose), \'91f\'92 (files).\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 9. What is page Fault and how it happens?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 A program request for some data and if it is not available in the Memory it is called as page fault. Page Fault occurs as a result of program shutdown.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 10. What are return codes in program?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 A return code is the feature of Shell. The result of return code shows the status of a program. A successful program after execution returns \'910\'92, && can be used to prioritize which application will be executing first.\cf20 \
+\
+\
+\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 1. SSH is configured on what Port Number, by default? How to change the port of SSH?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 SSH is configured on port 22, by default. We can change or set custom port number for SSH in configuration file.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 We can check port number of SSH by running the below one liner script, directly on terminal.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 # grep Port /etc/ssh/sshd_config		[On 
+\f9\b Red Hat
+\f8\b0  based systems]\
+\
+# grep Port /etc/ssh/ssh_config		        [On 
+\f9\b Debian
+\f8\b0  based systems]\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 To change the port of SSH, we need to modify the configuration file of SSH which is located at \'91\cf21 /etc/ssh/sshd_config\cf20 \'91 or \'91\cf21 /etc/ssh/ssh_config\cf20 \'91.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 # nano /etc/ssh/sshd_config	[On 
+\f9\b Red Hat
+\f8\b0  based systems]\
+\
+# nano /etc/ssh/ssh_config		[On 
+\f9\b Debian
+\f8\b0  based systems]\
+\pard\pardeftab720\sl420\qc\partightenfactor0
+
+\f2 \cf20 \cb1 \ul \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+\cf20 \cb3 \ulnone Searh for the Line.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 Port 22\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 And replace \'91\cf21 22\cf20 \'91 with any UN-engaged port Number say \'91\cf21 1080\cf20 \'91. Save the file and restart the SSH service to take the changes into effect.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 # service sshd restart					[On 
+\f9\b Red Hat
+\f8\b0  based systems]\
+\
+# service ssh restart					[On 
+\f9\b Debian
+\f8\b0  based systems]\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 \cb3 2. As a security implementation, you need to disable root Login on SSH Server, in Linux. What would you suggest?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 The above action can be implemented in the configuration file. We need to change the parameter \'91PermitRootLogin\'92 to \'91no\'92 in the configuration file to disable direct root login.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 To disable SSH root login, open the configuration file located at \'91\cf21 /etc/ssh/sshd_config\cf20 \'91 or \'91\cf21 /etc/ssh/ssh_config\cf20 \'91.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 # nano /etc/ssh/sshd_config			[On 
+\f9\b Red Hat
+\f8\b0  based systems]\
+\
+# nano Port /etc/ssh/ssh_config			[On 
+\f9\b Debian
+\f8\b0  based systems]\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 Change the parameter \'91\cf21 PermitRootLogin\cf20 \'91 to \'91\cf21 no\cf20 \'91 and restart the SSH service as show above.\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 3. SSH or Telnet? Why?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 Both SSH and Telnet are network Protocol. Both the services are used in order to connect and communicate to another machine over Network. SSH uses Port 22 and Telnet uses port 23 by default. Telnet send data in plain text and non-encrypted format everyone can understand whereas SSH sends data in encrypted format. Not to mention SSH is more secure than Telnet and hence SSH is preferred over Telnet.\cf20 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b\fs36 \cf24 \cb3 4. Is it possible to login to SSH server without password? How\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 Yes! It is possible to login to a remote SSH server without entering password. We need to use ssh-keygen technology to create public and private keys.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 Create\'a0\cf21 ssh-keygen\cf20 \'a0using the command below.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 $ ssh-keygen\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 Copy public keys to remote host using the command below.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 $ ssh-copy-id -i /home/USER/.ssh/id_rsa.pub REMOTE-SERVER\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf25 \cb3 Note\cf20 : Replace\'a0\cf21 USER\cf20 \'a0with user name and\'a0\cf21 REMOTE-SERVER\cf20 \'a0by remote server address.\
+The next time we try to login to SSH server, it will allow login without asking password, using the keygen. For more detailed instructions, read\'a0{\field{\*\fldinst{HYPERLINK "https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/"}}{\fldrslt \cf22 \ul \ulc22 how to login remote SSH server without password}}.\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 5. How will you allows users and groups to have access to SSH Sever?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 Yes! It is possible to allow users and groups to have access to SSH server.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 Here again we need to edit the configuration file of SSH service. Open the configuration file and add users and groups at the bottom as show below and then, restart the service.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 AllowUsers Tecmint Tecmint1 Tecmint2\
+AllowGroups group_1 group_2 group_3\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 \cb3 6. How to add welcome/warning message as soon as a user login to SSH Server?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 In order to add a welcome/warning message as soon as a user logged into SSH server, we need to edit file called \'91/etc/issue\'92 and add message there.\cf20 \
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8\fs36 \cf3 \cb18 # nano /etc/issue\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 And add your custom message in this file. See, below a screen grab that shows a custom message as soon as user logged into server.\
+\pard\pardeftab720\sl420\qc\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.tecmint.com/wp-content/uploads/2014/03/SSH-Login-Banner.jpeg"}}{\fldrslt \cf27 \cb1 \
+}}\pard\pardeftab720\sl300\qc\partightenfactor0
+
+\f11\i\fs26 \cf28 \cb29 SSH Login Message\cb1 \
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\i0\b\fs36 \cf24 \cb3 7. SSH has two protocols? Justify this statement.\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 SSH uses two protocols \'96 Protocol 1 and Protocol 2. Protocol 1 is older than protocol 2. Protocol 1 is less secure than protocol 2 and should be disabled in the config file.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 Again, we need to open the SSH configuration file and add/edit the lines as shown below.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 # protocol 2,1\
+\
+to\
+\
+Protocol 2\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 Save the configuration file and restart the service.\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 8. Is it possible to trace unauthorized login attempts to SSH Server with date of Intrusion along with their corresponding IP.\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 Yes! we can find the failed login attempts in the log file created at location \'91/var/log/secure\'92. We can make a filter using the grep command as shown below.\cf20 \
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8\fs36 \cf3 \cb18 # cat /var/log/secure | grep \'93Failed password for\'94\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf25 \cb3 Note\cf20 : The grep command can be tweaked in any other way to produce the same result.\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 9. Is it possible to copy files over SSH? How?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 Yes! We can copy files over SSH using command SCP, stands for \'91Secure CopY\'92. SCP copies file using SSH and is very secure in functioning.\cf20 \
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf20 \cb3 A dummy SCP command in action is depicted below:\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8 \cf3 \cb18 $ scp text_file_to_be_copied Your_username@Remote_Host_server:/Path/To/Remote/Directory\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 For more practical examples on how to copy files/folders using scp command, read the\'a0{\field{\*\fldinst{HYPERLINK "https://www.tecmint.com/scp-commands-examples/"}}{\fldrslt \cf22 \ul \ulc22 10 SCP Commands to Copy Files/Folders in Linux}}.\
+\pard\pardeftab720\sl468\sa280\partightenfactor0
+
+\f10\b \cf24 10. Is it possible to pass input to SSH from a local file? If Yes! How?\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2\b0\fs28 \cf25 \cb26 Answer :\cf20 \'a0\cf21 Yes! We can pass input to SSH from a local file. We can do this simply as we do in scripting Language. Here is a simple one liner command, which will pass input from local files to SSH.\cf20 \
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f8\fs36 \cf3 \cb18 # ssh username@servername < local_file.txt\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\f2 \cf20 \cb3 SSH is a very hot topic from interview point, of all times. The above questions would have surely added to your knowledge.\
+That\'92s all for now. I\'92ll soon be here with another interesting article. Till then Stay Tuned and connected to Tecmint. Don\'92t forget to provide us with your valuable feedback in our comment section.\
+\pard\pardeftab720\sl676\sa280\partightenfactor0
+
+\fs52 \cf23 Lsof \'96 List Open Files\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf21 Lsof\cf20 \'a0command used in many\'a0\cf21 Linux/Unix\cf20 \'a0like system that is used to display list of all the open files and the processes. The open files included are\'a0\cf21 disk files\cf20 ,\'a0\cf21 network sockets\cf20 ,\'a0\cf21 pipes\cf20 ,\'a0\cf21 devices\cf20 \'a0and\'a0\cf21 processes\cf20 . One of the main reason for using this command is when a disk cannot be unmounted and displays the error that files are being used or opened. With this commmand you can easily identify which files are in use. The most common format for this command is.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # lsof
+\f8\b0 \
+\
+COMMAND     PID      USER   FD      TYPE     DEVICE     SIZE       NODE NAME\
+init          1      root  cwd       DIR      104,2     4096          2 /\
+init          1      root  rtd       DIR      104,2     4096          2 /\
+init          1      root  txt       REG      104,2    38652   17710339 /sbin/init\
+init          1      root  mem       REG      104,2   129900     196453 /lib/ld-2.5.so\
+init          1      root  mem       REG      104,2  1693812     196454 /lib/libc-2.5.so\
+init          1      root  mem       REG      104,2    20668     196479 /lib/libdl-2.5.so\
+init          1      root  mem       REG      104,2   245376     196419 /lib/libsepol.so.1\
+init          1      root  mem       REG      104,2    93508     196431 /lib/libselinux.so.1\
+init          1      root   10u     FIFO       0,17                 953\
+\
+\pard\pardeftab720\sl676\sa280\partightenfactor0
+
+\f2\fs52 \cf23 \cb3 Tcpdump \'96 Network Packet Analyzer\
+\pard\pardeftab720\sl420\sa360\partightenfactor0
+
+\fs36 \cf21 Tcpdump\cf20 \'a0one of the most widely used command-line\'a0\cf21 network packet analyzer\cf20 \'a0or\'a0\cf21 packets sniffer\cf20 \'a0program that is used capture or filter\'a0\cf21 TCP/IP\cf20 \'a0packets that received or transferred on a specific interface over a network. It also provides a option to save captured packages in a file for later analysis. tcpdump is almost available in all major Linux distributions.\
+\pard\pardeftab720\sl580\partightenfactor0
+
+\f9\b \cf3 \cb18 # tcpdump -i eth0
+\f8\b0 \
+\
+\
+\
+find /opt/cri/cm/bin -type f ! -name '.*' ! -name 'audit.log*' -exec rm -rf \{\} \\; || true\
+\
+\
+mkdir -m 750 -p /opt/cri/cm/log/auditd\
+}

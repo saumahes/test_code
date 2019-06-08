@@ -1,0 +1,785 @@
+1) How to find all the links in a folder in UNIX or Linux ?
+
+This is a tricky UNIX question as there is no specific command to find all symbolic links. Though you have ln command for creating and updating soft links but nothing which gives you all the links in a directory. You need to use ls command which list everything in directory and then you need to list all the links, as they starts with "l" as first characters, as shown in above article .
+here is the actual UNIX command to find all links in a directory :
+
+linux@nyj872:~ ls -lrt 
+total 2.0K -rw-r--r-- 1 Linux Domain Users 0 Dec 6 2011 a drwxr-xr-x+ 1 Linux Domain Users 0 Sep 19 12:30 java/ lrwxrwxrwx 1 Linux Domain Users 4 Sep 19 12:31 version_1.0 -> java/
+
+linux@nyj872:~ ls -lrt | grep '^l'
+ lrwxrwxrwx 1 Linux Domain Users 4 Sep 19 12:31 version_1.0 -> java/
+
+2) How to find a process and kill that ?
+Another classic UNIX interview questions. Answer of this question is simple if you are familiar with ps, grep and kill command. by using "ps -ef" you can get list of all process and then use grep to find your process and get the PID of that process. Once you got PID you can use kill command to kill that process as shown in this example of kill command in UNIX.
+
+ps -aef | grep <process>
+
+3) How to run a program in background in UNIX or Linux ?
+an easy UNIX or Linux interview question, only when you know. You can use &amp; to run any process in background and than you can use jobs to find the job id for that process and can use fg and bg command to bring that process into foreground and background.
+
+CTRL+Z and bg - background
+Fg + processid - to move back to forground
+
+4) How to sort output of a command in reverse order in Linux or UNIX ?
+One more Linux command interview question which checks knowledge of frequently used command. you can use sort command in UNIX to sort output of any command by using PIPE. By using -r option with sort command you can sort output of any command in reverse order.
+
+ls -ltr
+
+5) How to create archive file in UNIX or Linux Operating System ?
+Another interview question based on knowledge of UNIX or Linux command. you can use tar command to great archives in UNIX or Linux. you can even combine tar and gzip to create a compressed archive in UNIX.
+
+tar -cvf file.tar /opt/cri/…
+tar -cvzf file.tgz /opt/cri/..
+
+to see the contains files in the tar or .tgz use tar -tvf file.tar or file .tgz
+
+6) What is meaning of a file has 644 permission ?
+To answer this UNIX or Linux interview question, you must know basics of files and directories in UNIX. 644 represents permission 110 for owner, permission 100 for group and 100 for others which means read + write for owner who create that file and read only permission for group and others.
+
+644 - rw_ for owner, r-- for group and r-- for others
+
+7) How will you remove empty files or directories from /tmp ?
+
+rm -rf /tmp
+find /tmp -mindepth 1 -exec rm -r {}  \;
+
+8) I have read permission on a directory but I am not able to enter it why ?
+In order to get into a directory you need execute permission. if your directory does not have execute permission than you can not go into that directory by using cd command.
+
+we should need execute permission to enter into directory.
+
+9) How do you find all files which are modified 10 minutes before ?
+This is another the Linux interview questions from frequently used command e.g. find and grep. you can use -mtime option of find command to list all the files which are modified 10 or m minutes before.
+
+find . -mmin -10
+
+10) How to do you find size of directory in UNIX or Linux ?
+This is another tricky and bit tough Linux interview question as popular ls command doesn't show complete size of directories in UNIX. you need to use du command to get full size of directories including all sub directories in UNIX.
+
+du -sh <directory name>
+
+11) Find out the open ports status from remote
+
+nc -zv <hostname/ip> <port/port range>
+
+For example,
+nc -zv localhost 27017-27019
+or
+nc -zv localhost 27017
+
+even we can use telnet command from host 1 to host2 to find out the status of that port. default port for telnet is 23
+telnet <ip/host> port
+
+For scripting purposes, I've found that curl command can do it, for example:
+
+$ curl -s localhost:80 >/dev/null && echo Connected. || echo Fail.
+Connected.
+$ curl -s localhost:123 >/dev/null && echo Connected. || echo Fail.
+Fail.
+
+12) Some standard open ports and service names
+
+Port		Service name									Transport protocol
+ 20, 21	 	File Transfer Protocol (FTP)	 				TCP
+ 22	 		Secure Shell (SSH)	 							TCP and UDP
+ 23	 		Telnet	 										TCP
+ 25	 		Simple Mail Transfer Protocol (SMTP)	 		TCP
+ 50, 51	 	IPSec	
+ 53	 		Domain Name System (DNS)	 					TCP and UDP
+ 67, 68	 	Dynamic Host Configuration Protocol (DHCP)		UDP
+ 69	 		Trivial File Transfer Protocol (TFTP)	 		UDP
+ 80	 		HyperText Transfer Protocol (HTTP)	 			TCP
+ 110	 	Post Office Protocol (POP3)	 					TCP
+ 119	 	Network News Transport Protocol (NNTP)	 		TCP
+ 123	 	Network Time Protocol (NTP)	 					UDP
+ 135-139	NetBIOS	 										TCP and UDP
+ 143	 	Internet Message Access Protocol (IMAP4)	 	TCP and UDP
+ 161, 162	Simple Network Management Protocol (SNMP)	 	TCP and UDP
+ 389	 	Lightweight Directory Access Protocol	 		TCP and UDP
+ 443	 	HTTP with Secure Sockets Layer (SSL)	 		TCP and UDP
+ 3389	 	Remote Desktop Protocol	 						TCP and UDP
+
+
+13) ifconfig utility is used to configure network interface parameters.
+Mostly we use this command to check the IP address assigned to the system.
+
+[root@localhost ~]# ifconfig -a
+eno16777736: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+       ether 00:0c:29:c5:a5:61 txqueuelen 1000 (Ethernet)
+       RX packets 0 bytes 0 (0.0 B)
+       RX errors 0 dropped 0 overruns 0 frame 0
+       TX packets 0 bytes 0 (0.0 B)
+       TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+lo: flags=73<UP,LOOPBACK,RUNNING> mtu 65536
+       inet 127.0.0.1 netmask 255.0.0.0
+       inet6 ::1 prefixlen 128 scopeid 0x10<host>
+       loop txqueuelen 0 (Local Loopback)
+       RX packets 2 bytes 140 (140.0 B)
+       RX errors 0 dropped 0 overruns 0 frame 0
+       TX packets 2 bytes 140 (140.0 B)
+       TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+
+Assigning IP Address and Gateway
+
+Assigning an IP Address and Gateway to interface on the fly. The setting will be removed in case of system reboot.
+# ifconfig eth0 192.168.50.5 netmask 255.255.255.0
+
+
+Setting MTU Size
+By default MTU size is 1500. We can set required MTU size with below command. Replace XXXX with size.
+# ifconfig eth0 mtu XXXX
+
+
+ROUTE Command
+route command also shows and manipulate ip routing table. To see default routing table in Linux, type the following command.
+# route
+
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.50.0    *               255.255.255.0   U     0      0        0 eth0
+link-local      *               255.255.0.0     U     1002   0        0 eth0
+default         192.168.50.1    0.0.0.0         UG    0      0        0 eth0
+
+
+Adding, deleting routes and default Gateway with following commands.
+
+Route Adding
+# route add -net 10.10.10.0/24 gw 192.168.0.1
+
+Route Deleting
+# route del -net 10.10.10.0/24 gw 192.168.0.1
+
+Adding default Gateway
+# route add default gw 192.168.0.1
+
+
+
+14) traceroute print the route packets take to network host.
+Destination host or IP is mandatory parameter to use this utility
+
+HQMP-SMAHESHWAR:Desktop smaheshwari$ traceroute google.com
+traceroute to google.com (172.217.164.110), 64 hops max, 52 byte packets
+ 1  tew-731br (192.168.10.1)  2.846 ms  3.318 ms  6.595 ms
+ 2  96.120.88.245 (96.120.88.245)  16.644 ms  19.228 ms  14.279 ms
+ 3  be-20002-rur02.santaclara.ca.sfba.comcast.net (68.85.103.169)  12.251 ms  15.190 ms  13.113 ms
+ 4  162.151.78.129 (162.151.78.129)  13.080 ms  13.275 ms  16.534 ms
+ 5  be-232-rar01.santaclara.ca.sfba.comcast.net (162.151.78.253)  14.067 ms  15.000 ms  14.349 ms
+ 6  be-299-ar01.santaclara.ca.sfba.comcast.net (68.86.143.93)  11.944 ms  18.806 ms  18.817 ms
+ 7  96.112.146.22 (96.112.146.22)  17.820 ms
+    96.112.146.26 (96.112.146.26)  20.981 ms
+    96.112.146.18 (96.112.146.18)  19.421 ms
+ 8  * * *
+ 9  108.170.237.146 (108.170.237.146)  16.275 ms
+    108.170.237.22 (108.170.237.22)  22.427 ms
+    209.85.251.8 (209.85.251.8)  17.579 ms
+10  209.85.252.251 (209.85.252.251)  24.593 ms
+    74.125.252.151 (74.125.252.151)  35.940 ms  21.237 ms
+11  sfo03s18-in-f14.1e100.net (172.217.164.110)  13.680 ms  18.114 ms  18.513 ms
+
+
+15) dig (Domain Information Groper) is a flexible tool for interrogating DNS name servers.
+It performs DNS lookups and displays the answers that are returned from the name servers.
+[root@localhost ~]# dig geekflare.com
+; <<>> DiG 9.9.4-RedHat-9.9.4-14.el7 <<>> geekflare.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18699
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; MBZ: 0005 , udp: 4000
+;; QUESTION SECTION:
+;geekflare.com.                                   IN        A
+;; ANSWER SECTION:
+geekflare.com.                        5          IN        A          162.159.244.243
+geekflare.com.                        5          IN        A          162.159.243.243
+;; Query time: 6 msec
+;; SERVER: 172.16.179.2#53(172.16.179.2)
+;; WHEN: Sun May 01 23:28:19 PDT 2016
+;; MSG SIZE rcvd: 74
+[root@localhost ~]#
+
+nslookup is a program to query Internet domain name servers.
+[root@localhost ~]# nslookup geekflare.com
+Server:                        172.16.179.2
+Address:         172.16.179.2#53 
+Non-authoritative answer:
+Name: geekflare.com
+Address: 162.159.243.243
+Name: geekflare.com
+Address: 162.159.244.243
+[root@localhost ~]#
+
+similar to host command - 
+host google.com
+
+HQMP-SMAHESHWAR:Desktop smaheshwari$ nslookup google.com
+Server:		192.168.10.1
+Address:	192.168.10.1#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 172.217.164.110
+
+HQMP-SMAHESHWAR:Desktop smaheshwari$ host google.com
+google.com has address 172.217.164.110
+google.com has IPv6 address 2607:f8b0:4005:80b::200e
+
+
+
+
+16) telnet connect destination host:port via a telnet protocol if connection establishes means connectivity between two hosts is working fine.
+[root@localhost ~]# telnet geekflare.com 443
+Trying 162.159.244.243...
+Connected to geekflare.com.
+Escape character is '^]'.
+
+
+Netstat command allows you a simple way to review each of your network connections and open sockets.
+netstat with head output is very helpful while performing web server troubleshooting.
+[root@localhost ~]# netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address        State    
+tcp       0     0 172.16.179.135:58856   mirror.comp.nus.ed:http TIME_WAIT
+tcp       0     0 172.16.179.135:34444   riksun.riken.go.jp:http ESTABLISHED
+tcp       0     0 172.16.179.135:37948   mirrors.isu.net.sa:http TIME_WAIT
+tcp       0     0 172.16.179.135:53128   ossm.utm.my:http       TIME_WAIT
+tcp       0     0 172.16.179.135:59723   103.237.168.15:http     TIME_WAIT
+tcp       0     0 172.16.179.135:60244   no-ptr.as20860.net:http TIME_WAIT
+
+
+scp allows you to secure copy files to and from another host in the network.
+Ex:
+scp $filename user@targethost:/$path
+
+
+w prints a summary of the current activity on the system, including what each user is doing, and their processes.
+Also list the logged in users and system load average for the past 1, 5, and 15 minutes.
+
+HQMP-SMAHESHWAR:Desktop smaheshwari$ w
+ 7:27  up 34 days,  9:54, 3 users, load averages: 1.64 1.64 1.71
+USER     TTY      FROM              LOGIN@  IDLE WHAT
+smaheshwari console  -                21Apr19 34days -
+smaheshwari s001     -                22Apr19 14:39 python
+smaheshwari s002     -                06May19     - w
+
+
+nmap is a one of the powerful commands, which checks the opened port on the server.
+Usage example:
+nmap $server_name
+
+hqxsv-cmdev3-smaheshwari:~/ nmap 10.87.8.9
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2019-05-26 07:33 PDT
+Nmap scan report for hqxsr-qa-app39.cm.rambus.com (10.87.8.9)
+Host is up (0.020s latency).
+Not shown: 998 filtered ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+443/tcp open  https
+
+To Enable/Disable Network Interface
+You can enable or disable the network interface by using ifup/ifdown commands with ethernet interface parameter.
+
+To enable eth0
+#ifup eth0
+
+To disable eth0
+#ifdown eth0
+
+top : You may want to start by looking into top or htop result to see the processes overview.
+As you can see below, it gives an excellent idea about what all processes are utilizing. If you look at the first one which is nodejs taking 3.9% of memory and 0.3% of CPU.
+Once you identify the suspect, then you may want to focus on that process instead of everything like you saw above. You can still use top command but with some argument.
+
+Let’s say you know the process id (PID); you can use the below command.
+top -p $PID
+
+qxsv-cmdev3-smaheshwari:~/smaheshwari_1.4.2_cmfuntests-1926/cmtests/dd (smaheshwari_1.4.2_cmfuntests-1926-local)$ top
+top - 07:37:17 up 95 days, 14:08, 16 users,  load average: 0.14, 0.08, 0.06
+Tasks: 327 total,   2 running, 325 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  6.7 us,  3.7 sy,  0.0 ni, 89.3 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+KiB Mem :  3880956 total,   318040 free,  2772092 used,   790824 buff/cache
+KiB Swap:  2097148 total,   802472 free,  1294676 used.   741736 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                                                                                    
+24982 smahesh+  20   0  185392  13192    584 S  7.6  0.3 160:09.23 sshd                                                                                                                       
+25037 smahesh+  20   0 1672012 331700   7384 S  1.7  8.5  81:25.19 konsole                                                                                                                    
+28022 smahesh+  20   0  169012   2772   1816 R  0.3  0.1   0:00.08 top                                                                                                                        
+28130 smahesh+  20   0 2481688 770812   3168 S  0.3 19.9  54:44.66 java                                                                                                                       
+    1 root      20   0  136712   3876   1688 S  0.0  0.1  27:07.88 systemd                                                                                                                    
+    2 root      20   0       0      0      0 S  0.0  0.0   0:03.52 kthreadd                                                                                                                   
+    3 root      20   0       0      0      0 S  0.0  0.0   4:18.83 ksoftirqd/0                                                                                                                
+    5 root       0 -20       0      0      0 S  0.0  0.0   1:07.82 kworker/0:0H                                                                                                               
+    7 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0                                                                                                                
+    8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh                                                                                                                     
+    9 root      20   0       0      0      0 S  0.0  0.0  14:12.78 rcu_sched                                                                                                                  
+   10 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 lru-add-drain                                                                                                              
+   11 root      rt   0       0      0      0 S  0.0  0.0   0:42.83 watchdog/0                                                                                                                 
+   13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs                                                                                                                  
+   14 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 netns                                                                                                                      
+   15 root      20   0       0      0      0 S  0.0  0.0   0:07.90 khungtaskd                                                                                                                 
+   16 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 writeback                                                                                                                  
+   17 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kintegrityd                                                                                                                
+   18 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 bioset                                                                                                                     
+   19 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 bioset                                                                                                                     
+   20 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 bioset                                                                                                                     
+   21 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kblockd                                                                                                                    
+   22 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 md                                                                                                                         
+   23 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 edac-poller                                                                                                                
+   24 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 watchdogd                                                                                                                  
+   30 root      20   0       0      0      0 S  0.0  0.0  10:16.88 kswapd0                                                                                                                    
+   31 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd                                                                                                                       
+   32 root      39  19       0      0      0 S  0.0  0.0   0:46.34 khugepaged                                                                                                                 
+   33 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 crypto                                                                                                                     
+   41 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kthrotld                                                                                                                   
+   43 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kmpath_rdacd                                                                                                               
+   44 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kaluad                                                                                                                     
+   45 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kpsmoused                                                                                                                  
+   59 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 deferwq                                                                                                                    
+   90 root      20   0       0      0      0 S  0.0  0.0   0:00.82 kauditd  
+
+
+ top -p 25037
+top - 07:37:43 up 95 days, 14:08, 16 users,  load average: 0.09, 0.07, 0.06
+Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.3 us,  1.0 sy,  0.0 ni, 96.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3880956 total,   318660 free,  2771464 used,   790832 buff/cache
+KiB Swap:  2097148 total,   802472 free,  1294676 used.   742364 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                                                                                    
+25037 smahesh+  20   0 1672012 331720   7384 S  0.3  8.5  81:25.42 konsole        
+
+
+htop
+Similar to the top but with more information. As you can, it got the command column, which is handy to identify the process path. And, also it is colorful.
+
+glances
+As the name says, you get system utilization view on a single screen. Running processes are sorted by their CPU utilization.
+
+                            hqxsv-cmdev3-smaheshwari (Red Hat Enterprise Linux Workstation 7.6 64bit / Linux                                                        Uptime: 95 days, 15:13:00
+
+CPU      12.5%  steal:    0.0%   Load   1-core   Mem    77.2%  active:   1.96G   Swap   61.7%
+user:     6.9%  nice:     0.0%   1 min:   0.00   total: 3.70G  inactive: 1.06G   total: 2.00G
+system:   5.0%  iowait:   0.0%   5 min:   0.03   used:  2.86G  buffers:      0   used:  1.23G
+idle:    87.5%  irq:      0.0%   15 min:  0.05   free:   865M  cached:    580M   free:   784M
+
+Network    Rx/s    Tx/s   Tasks  327 (626 thr),  3 run, 324 slp,  0 oth  sorted automatically
+cmvpn        0b      0b
+ens192    349Kb  35.3Mb    VIRT   RES  CPU%  MEM%   PID USER        NI S    TIME+ IOR/s IOW/s NAME
+lo       35.2Mb  35.2Mb    2.4G  753M   0.6  19.9 28130 smaheshwa    0 S 54:45.29     0     0 java
+virbr0       0b      0b    2.3G  357M   0.0   9.4 21455 smaheshwa    0 S 23:19.28     0     0 Web
+_rbr0-ni     0b      0b    1.6G  324M   1.3   8.5 25037 smaheshwa    0 S 21:27.29     0     0 /usr/bin/konsole
+                           2.0G  263M   0.0   6.9  2374 smaheshwa    0 S  5:22.17     0     0 Web
+Disk I/O   In/s   Out/s    2.7G  241M   0.3   6.4  2118 smaheshwa    0 S 32:10.20     0     0 /usr/lib64/firefox/firefox
+dm-0          0       0    2.2G  133M   0.0   3.5  9046 smaheshwa    0 S  9:53.69     0     0 Web
+dm-1         3K       0    1.7G   96M   0.0   2.5 22636 smaheshwa    0 S  0:20.50     0     0 file://
+fd0           0       0    2.0G   89M   0.0   2.4  9068 smaheshwa    0 S  3:57.47     0     0 Web
+sda1          0       0    1.1G   80M   0.0   2.1 28231 mysql        0 S 51:33.21     0     0 /usr/sbin/mysqld --daemonize --pid-file=/var/run/mysqld/mysqld.pid
+sda2        682    853K    605M   54M   0.0   1.4  1471 smaheshwa    0 S  0:13.80     0     0 node /user/smaheshwari/smaheshwari_1.4.2_cmfuntests-1926/cmtests/env/cm_webhook_server//start.js
+sda3         3K       0    240M   16M   5.3   0.4 28419 smaheshwa    0 R  0:01.40     0     0 /usr/bin/python /usr/bin/glances
+sr0           0       0    181M   13M   4.1   0.3 24982 smaheshwa    0 R 40:14.79     0     0 sshd: smaheshwari@notty
+                            57M    7M   0.0   0.2  5937 root         0 S 54:15.85     0     0 /opt/quest/sbin/.vasd -p /var/opt/quest/vas/vasd/.vasd.pid
+Mount      Used   Total     57M    7M   0.0   0.2  5938 root         0 S  7:02.66     0     0 /opt/quest/sbin/.vasd -p /var/opt/quest/vas/vasd/.vasd.pid
+/         14.2G   67.5G    430M    6M   0.0   0.2  5630 root         0 S  8:07.78     0     0 /usr/sbin/rsyslogd -n
+/boot      144M    497M    613M    6M   0.0   0.1 25097 smaheshwa    0 S  0:08.17     0     0 /usr/bin/knotify4
+_bs/apps   344G    436G     56M    6M   0.0   0.1  5933 root         0 S 27:35.78     0     0 /opt/quest/sbin/.vasd -p /var/opt/quest/vas/vasd/.vasd.pid
+/run       169M   1.85G    134M    5M   0.0   0.1     1 root         0 S 27:07.96     0     0 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+_er/5704    16K    379M    666M    4M   0.0   0.1  5741 root         0 S  8:14.42     0     0 /usr/sbin/automount --foreground --dont-check-daemon
+_er/5714      0    379M    183M    4M   0.0   0.1  8350 smaheshwa    0 S  0:00.27     0     0 ssh root@hqxsr-cmserv3
+_selinux      0       0     75M    4M   0.0   0.1  5846 root         0 S 20:11.68     0     0 /opt/quest/sbin/.vasd -p /var/opt/quest/vas/vasd/.vasd.pid
+_jpathak  12.3T   13.2T     39M    3M   0.0   0.1  2551 root         0 S  1:39.64     0     0 /usr/lib/systemd/systemd-journald
+_eshwari  12.3T   13.2T     52M    3M   0.0   0.1  5940 root         0 S  0:00.62     0     0 /opt/quest/sbin/.vasd -p /var/opt/quest/vas/vasd/.vasd.pid
+__pipefs      0       0     55M    3M   0.0   0.1  5939 root         0 S  0:09.58     0     0 /opt/quest/sbin/.vasd -p /var/opt/quest/vas/vasd/.vasd.pid
+                           158M    3M   0.0   0.1 12100 root         0 S  0:00.15     0     0 sshd: jpathak [priv]
+                           127M    2M   0.0   0.1 12122 jpathak      0 S  0:00.50     0     0 -bash
+                           183M    2M   0.0   0.1   549 smaheshwa    0 S  0:00.57     0     0 ssh root@hqxsr-qa-app36
+
+WARNING|CRITICAL logs (one entry)
+~ 2019-05-26 07:41:35 > ___________________ MEM real (2.85G/2.86G/2.86G) - Top process: java
+
+
+atop
+
+A similar to the above listed but with a brilliant feature to record the output in a file so you can view them later. Imagine, there is a pattern of having an issue at a specific time window. You can schedule to write the output in a file through crontab or other and later you can playback.
+To record the output in a file:
+atop -w filename
+and, to playback:
+atop -r filename
+It supports multiple arguments like interval, samples, etc. and I would strongly recommend taking a look at the man page.
+
+
+ATOP - hqxsv-cmdev3-smaheshwari                                       2019/05/26  07:43:08                                       -----------                                       10s elapsed
+PRC | sys    0.59s |  user   1.37s |              | #proc    327  | #trun      4 | #tslpi   622  |              | #tslpu     0 |  #zombie    0 | clones    11 |               | no  procacct |
+CPU | sys       5% |  user     14% | irq       1% |               | idle     80% | wait      0%  |              |              |  steal     0% | guest     0% | curf 3.19GHz  | curscal   ?% |
+CPL | avg1    0.13 |  avg5    0.09 |              | avg15   0.07  |              |               | csw     9583 | intr   26948 |               |              | numcpu     1  |              |
+MEM | tot     3.7G |  free  292.0M | cache 582.3M | dirty   0.0M  | buff    0.0M | slab  206.3M  | slrec 137.5M | shmem  21.1M |  shrss   0.0M | vmbal   0.0M | hptot   0.0M  | hpuse   0.0M |
+SWP | tot     2.0G |  free  783.7M |              |               |              |               |              |              |               |              | vmcom   7.8G  | vmlim   3.9G |
+LVM |    rhel-root |  busy      0% | read       0 |               | write     56 | KiB/r      0  | KiB/w     11 | MBr/s   0.00 |  MBw/s   0.06 |              | avq     2.20  | avio 0.27 ms |
+DSK |          sda |  busy      0% | read       0 |               | write     55 | KiB/r      0  | KiB/w     11 | MBr/s   0.00 |  MBw/s   0.06 |              | avq     2.13  | avio 0.27 ms |
+NET | transport    |  tcpi   17319 | tcpo  136235 | udpi       0  | udpo       0 | tcpao      0  | tcppo      0 | tcprs     34 |  tcpie      0 | tcpor      0 | udpnp      0  | udpie      0 |
+NET | network      |  ipi    17338 | ipo    14075 |               | ipfrw      0 | deliv  17338  |              |              |               |              | icmpi      0  | icmpo      0 |
+NET | lo      ---- |  pcki    3751 | pcko    3751 | si  146 Mbps  | so  146 Mbps | coll       0  |              | mlti       0 |  erri       0 | erro       0 | drpi       0  | drpo       0 |
+NET | ens192  ---- |  pcki   13623 | pcko   10324 | si  818 Kbps  | so  147 Mbps | coll       0  |              | mlti       0 |  erri       0 | erro       0 | drpi       0  | drpo       0 |
+
+  PID          TID         SYSCPU        USRCPU          VGROW          RGROW        RUID             EUID             THR         ST         EXC        S          CPU        CMD         1/1
+24982            -          0.44s         1.04s             0K             0K        smaheshw         smaheshw           1         --           -        R          15%        sshd
+25037            -          0.06s         0.26s             0K             0K        smaheshw         smaheshw           2         --           -        S           3%        konsole
+28513            -          0.05s         0.01s         11940K          2204K        smaheshw         smaheshw           1         --           -        R           1%        atop
+28130            -          0.00s         0.02s             0K             0K        smaheshw         smaheshw          36         --           -        S           0%        java
+28231            -          0.01s         0.01s             0K             0K        mysql            mysql             45         --           -        S           0%        mysqld
+ 4918            -          0.01s         0.01s             0K             0K        root             root               1         --           -        S           0%        vmtoolsd
+25097            -          0.00s         0.01s             0K             0K        smaheshw         smaheshw           3         --           -        S           0%        knotify4
+ 5933            -          0.00s         0.01s             0K             0K        root             daemon             1         --           -        S           0%        .vasd
+    1            -          0.01s         0.00s             0K             0K        root             root               1         --           -        S           0%        systemd
+ 5846            -          0.01s         0.00s             0K             0K        root             root               1         --           -        S           0%        .vasd
+ 5741            -          0.00s         0.00s             0K             0K        root             root               9         --           -        S           0%        automount
+ 5623            -          0.00s         0.00s             0K             0K        root             root               5         --           -        S           0%        tuned
+    3            -          0.00s         0.00s             0K             0K        root             root               1         --           -        S           0%        ksoftirqd/0
+
+
+ps
+Let’s check ps command now.
+You can use ps command with PID to print their CPU and memory utilization.
+ps -p $PID -o %cpu,%mem
+The output should look like this.
+root@sr-master-us:~# ps -p 1048 -o %cpu,%mem
+%CPU %MEM
+ 0.2  3.0
+root@sr-master-us:~#
+
+dmesg command is used to display the kernel related messages on Unix like systems. dmesg stands for “display message or display driver“. dmesg command retrieve its data by reading the kernel ring buffer. While doing troubleshooting on Linux systems, dmesg command becomes very handy, it can help us to identify hardware related errors and warnings, apart from this it can print daemon related messages on your screen
+
+
+[root@tecmint.com ~]# dmesg | more
+[root@tecmint.com ~]# dmesg | less
+[root@tecmint.com ~]# dmesg | grep sda
+dmesg | head  -20
+Print Only Last 20 Lines of Output
+The ‘tail’ along with dmesg command will print only 20 last lines, this is useful in case we insert removable device.
+[root@tecmint.com ~]# dmesg | tail -20
+Search Detected Device or Particular String
+It’s difficult to search particular string due to length of dmesg output. So, filter the lines with are having string like ‘usb‘ ‘dma‘ ‘tty‘ and ‘memory‘ etc. The ‘-i’ option instruct to grep command to ignore the case (upper or lower case letters).
+[root@tecmint.com log]# dmesg | grep -i usb
+[root@tecmint.com log]# dmesg | grep -i dma
+[root@tecmint.com log]# dmesg | grep -i tty
+[root@tecmint.com log]# dmesg | grep -i memory
+
+These above commands can be merged into a single command using multiple grep option (-E), examples is shown below,
+
+~]# dmesg | grep -E "memory|dma|usb|tty"
+
+
+HOST Command
+host command to find name to IP or IP to name in IPv4 or IPv6 and also query DNS records.
+# host www.google.com
+
+www.google.com has address 173.194.38.180
+www.google.com has address 173.194.38.176
+
+ARP Command
+ARP (Address Resolution Protocol) is useful to view / add the contents of the kernel’s ARP tables. To see default table use the command as.
+# arp -e
+
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.50.1             ether   00:50:56:c0:00:08   C      
+
+
+When to Use fsck in Linux
+There are different scenarios when you will want to run fsck. Here are few examples:
+
+- The system fails to boot.
+- Files on the system become corrupt (often you may see input/output error).
+- Attached drive (including flash drives/SD cards) is not working as expected.
+
+How to Run fsck to Repair Linux File System Errors
+In order to run fsck, you will need to ensure that the partition you are going to check is not mounted. For the purpose of this article, I will use my second drive /dev/sdb mounted in /mnt.
+
+Here is what happens if I try to run fsck when the partition is mounted.
+
+fsck /dev/sdb
+
+[root@S9f000018bb4a56015ce83d86 scheduler]# fsck /dev/sda4
+fsck from util-linux 2.23.2
+e2fsck 1.42.9 (28-Dec-2013)
+/dev/sda4 is mounted.
+e2fsck: Cannot continue, aborting.
+
+after umount /dev/sda4 you can run the same command again to clean the disk or fix the boot up issue.
+
+fsck -y /dev/sdb
+
+1. How will you suspend a running process and put it in the background?
+Answer : In order to suspend a running process/job and put it in the background we need to use the key combination Ctrl+z.
+
+2. What are the minimum number of partitions required to install Linux and How will you check boot messages?
+Answer : The /root partition alone is sufficient to perform the whole task however minimum three partitions are recommended to install Linux. These are root, boot and swap. An IDE Hard Disk Drive supports upto 63 partitions and SCSI Hard Disk Drive supports up-to 15 partitions.
+In order to check boot messages we need to use cat or dmesg commands as shown below.
+# cat /var/log/messages
+
+OR 
+
+# dmesg
+
+3. Name the Daemon responsible for tracking System Event on your Linux box?
+Answer : The Daemon ‘syslogd’ is responsible for tracking system information and stores the tracked logs in specific log files.
+
+4. What are the minimum requirements to run command ‘fsck’ on root partition?
+Answer : The /root partition must be mounted as read only mode and not read-write to execute fsck command on root partition.
+
+5. How to copy /home directory hierarchically to another directory. How will you do it?
+Answer : A Linux command ‘cpio’ comes to rescue here. The ‘cpio’ utility copies files and directories hierarchically over another location.
+
+6. How will you automate the rotation of logs in Linux?
+Answer : A Linux command ‘logrotate’ comes to rescue when it comes to automate the logs in Linux.
+
+7. How to know who has scheduled the job?
+Answer : The Linux command ‘at’ along with switch ‘-l’ is all we need to use in order to check who has scheduled the job.
+
+8. How to view the contents of the tar ball without extracting it. How will you do this?
+Answer : We need to use command ‘tar’ with options ‘-tvf’. The options ‘t’ (Display the contents), ‘v’ (Verbose), ‘f’ (files).
+
+9. What is page Fault and how it happens?
+Answer : A program request for some data and if it is not available in the Memory it is called as page fault. Page Fault occurs as a result of program shutdown.
+
+10. What are return codes in program?
+Answer : A return code is the feature of Shell. The result of return code shows the status of a program. A successful program after execution returns ‘0’, && can be used to prioritize which application will be executing first.
+
+
+sum command is used to find out the checksum of the file
+
+sum <filename>
+
+
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ sum config.json 
+35698     1
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ sum temp.txt 
+42851     1
+
+cut command - 
+The cut command in UNIX is a command for cutting out the sections from each line of files and writing the result to standard output. It can be used to cut parts of a line by byte position, character and field. Basically the cut command slices a line and extracts the text. It is necessary to specify option with command otherwise it gives error. If more than one file name is provided then data from each file is not precedes by its file name.
+
+cut -c -5 temp.txt 
+{"_in
+
+cut -c -10 temp.txt 
+{"_index":
+
+cut -c 12-20 temp.txt 
+metadata_
+
+tr command in Unix/Linux with examples
+The tr command in UNIX is a command line utility for translating or deleting characters. It supports a range of transformations including uppercase to lowercase, squeezing repeating characters, deleting specific characters and basic find and replace. It can be used with UNIX pipes to support more complex translation. tr stands for translate.
+
+https://www.geeksforgeeks.org/tr-command-in-unix-linux-with-examples/
+
+
+
+last command in Linux with Examples
+The last command in Linux is used to display the list of all the users logged in and out since the file /var/log/wtmp was created. One or more usernames can be given as an argument to display their login in (and out) time and their host-name.
+
+last -5
+last -F
+last
+
+
+‘dd’ command in Linux
+dd is a command-line utility for Unix and Unix-like operating systems whose primary purpose is to convert and copy files.
+
+On Unix, device drivers for hardware (such as hard disk drives) and special device files (such as /dev/zero and /dev/random) appear in the file system just like normal files.
+dd can also read and/or write from/to these files, provided that function is implemented in their respective drivers
+As a result, dd can be used for tasks such as backing up the boot sector of a hard drive, and obtaining a fixed amount of random data.
+The dd program can also perform conversions on the data as it is copied, including byte order swapping and conversion to and from the ASCII and EBCDIC text encodings.
+
+To backup the entire harddisk : To backup an entire copy of a hard disk to another hard disk connected to the same system, execute the dd command as shown. In this dd command example, the UNIX device name of the source hard disk is /dev/hda, and device name of the target hard disk is /dev/hdb.
+# dd if = /dev/sda of = /dev/sdb
+
+To backup a Partition : You can use the device name of a partition in the input file, and in the output either you can specify your target path or image file as shown in the dd command.
+# dd if=/dev/hda1 of=~/partition.img
+To create an image of a Hard Disk : Instead of taking a backup of the hard disk, you can create an image file of the hard disk and save it in other storage devices. There are many advantages of backing up your data to a disk image, one being the ease of use. This method is typically faster than other types of backups, enabling you to quickly restore data following an unexpected catastrophe.It creates the image of a hard disk /dev/hda.
+# dd if = /dev/hda of = ~/hdadisk.img
+To restore using the Hard Disk Image : To restore a hard disk with the image file of an another hard disk, the following dd command can be used
+# dd if = hdadisk.img of = /dev/hdb
+
+To create CDROM Backup : dd command allows you to create an iso file from a source file. So we can insert the CD and enter dd command to create an iso file of a CD content.
+# dd if = /dev/cdrom of = tgsservice.iso bs = 2048
+dd command reads one block of input and process it and writes it into an output file. You can specify the block size for input and output file. In the above dd command example, the parameter “bs” specifies the block size for the both the input and output file. So dd uses 2048bytes as a block size in the above command.
+
+
+md5sum Command in Linux with Examples
+The md5sum is designed to verify data integrity using MD5 (Message Digest Algorithm 5).
+
+MD5 is 128-bit cryptographic hash and if used properly it can be used to verify file authenticity and integrity.
+
+Example :
+
+Input : md5sum /home/mandeep/test/test.cpp
+Output : c6779ec2960296ed9a04f08d67f64422  /home/mandeep/test/test.cpp
+
+
+Sed Command in Linux/Unix with examples
+SED command in UNIX is stands for stream editor and it can perform lot’s of function on file like, searching, find and replace, insertion or deletion. Though most common use of SED command in UNIX is for substitution or for find and replace. By using SED you can edit files even without opening it, which is much quicker way to find and replace something in file, than first opening that file in VI Editor and then changing it.
+
+SED is a powerful text stream editor. Can do insertion, deletion, search and replace(substitution).
+SED command in unix supports regular expression which allows it perform complex pattern matching.
+Syntax:
+
+sed OPTIONS... [SCRIPT] [INPUTFILE...] 
+Example:
+Consider the below text file as an input.
+
+$cat > geekfile.txt
+
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+Sample Commands
+
+Replacing or substituting string : Sed command is mostly used to replace the text in a file. The below simple sed command replaces the word “unix” with “linux” in the file.
+$sed 's/unix/linux/' geekfile.txt
+Output :
+
+
+
+ 
+
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+Here the “s” specifies the substitution operation. The “/” are delimiters. The “unix” is the search pattern and the “linux” is the replacement string.
+
+By default, the sed command replaces the first occurrence of the pattern in each line and it won’t replace the second, third…occurrence in the line.
+
+Replacing the nth occurrence of a pattern in a line : Use the /1, /2 etc flags to replace the first, second occurrence of a pattern in a line. The below command replaces the second occurrence of the word “unix” with “linux” in a line.
+$sed 's/unix/linux/2' geekfile.txt
+Output:
+
+unix is great os. linux is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.linux is a multiuser os.Learn unix .unix is a powerful.
+Replacing all the occurrence of the pattern in a line : The substitute flag /g (global replacement) specifies the sed command to replace all the occurrences of the string in the line.
+$sed 's/unix/linux/g' geekfile.txt
+Output :
+
+linux is great os. linux is opensource. linux is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.linux is a multiuser os.Learn linux .linux is a powerful.
+Replacing from nth occurrence to all occurrences in a line : Use the combination of /1, /2 etc and /g to replace all the patterns from the nth occurrence of a pattern in a line. The following sed command replaces the third, fourth, fifth… “unix” word with “linux” word in a line.
+$sed 's/unix/linux/3g' geekfile.txt
+Output:
+
+unix is great os. unix is opensource. linux is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn linux .linux is a powerful.
+Parenthesize first character of each word : This sed example prints the first character of every word in paranthesis.
+$ echo "Welcome To The Geek Stuff" | sed 's/\(\b[A-Z]\)/\(\1\)/g'
+Output:
+
+(W)elcome (T)o (T)he (G)eek (S)tuff
+Replacing string on a specific line number : You can restrict the sed command to replace the string on a specific line number. An example is
+$sed '3 s/unix/linux/' geekfile.txt
+Output:
+
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+The above sed command replaces the string only on the third line.
+
+Duplicating the replaced line with /p flag : The /p print flag prints the replaced line twice on the terminal. If a line does not have the search pattern and is not replaced, then the /p prints that line only once.
+$sed 's/unix/linux/p' geekfile.txt
+Output:
+
+linux is great os. unix is opensource. unix is free os.
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+Printing only the replaced lines : Use the -n option along with the /p print flag to display only the replaced lines. Here the -n option suppresses the duplicate rows generated by the /p flag and prints the replaced lines only one time.
+$sed -n 's/unix/linux/p' geekfile.txt
+Output:
+
+linux is great os. unix is opensource. unix is free os.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+If you use -n alone without /p, then the sed does not print anything.
+
+Replacing string on a range of lines : You can specify a range of line numbers to the sed command for replacing a string.
+$sed '1,3 s/unix/linux/' geekfile.txt
+Output:
+
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+Here the sed command replaces the lines with range from 1 to 3. Another example is
+
+$sed '2,$ s/unix/linux/' geekfile.txt
+Output:
+
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
+Here $ indicates the last line in the file. So the sed command replaces the text from second line to last line in the file.
+
+Deleting lines from a particular file : SED command can also be used for deleting lines from a particular file. SED command is used for performing deletion operation without even opening the file
+Examples:
+1. To Delete a particular line say n in this example
+Syntax:
+$ sed 'nd' filename.txt
+Example:
+$ sed '5d' filename.txt
+2. To Delete a last line
+
+Syntax:
+$ sed '$d' filename.txt
+3. To Delete line from range x to y
+
+Syntax:
+$ sed 'x,yd' filename.txt
+Example:
+$ sed '3,6d' filename.txt
+5. To Delete from nth to last line
+
+Syntax:
+$ sed 'nth,$d' filename.txt
+Example:
+$ sed '12,$d' filename.txt
+6. To Delete pattern matching line
+
+Syntax:
+$ sed '/pattern/d' filename.txt
+Example:
+$ sed '/abc/d' filename.txt
+
+https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
+
+
+The command ‘uname‘ displays the information about the system.
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -a
+Linux hqxsv-cmdev3-smaheshwari 3.10.0-957.5.1.el7.x86_64 #1 SMP Wed Dec 19 10:46:58 EST 2018 x86_64 x86_64 x86_64 GNU/Linux
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -s
+Linux
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -n
+hqxsv-cmdev3-smaheshwari
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -r
+3.10.0-957.5.1.el7.x86_64
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -v
+#1 SMP Wed Dec 19 10:46:58 EST 2018
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -m
+x86_64
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -p
+x86_64
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -i
+x86_64
+
+hqxsv-cmdev3-smaheshwari:~/cm_webhook_server/te ((detached from refs/heads/testbr))$ uname -o
+
+
+
